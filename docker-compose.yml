@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - storage_lhc:/var/www
+      - ./lhc.conf:/etc/nginx/conf.d/default.conf
+    links:
+      - app
+  app:
+    build: .
+    volumes:
+      - storage_lhc:/var/www
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - 9080:80
+    links:
+      - db
+
+  db:
+    image: mysql:5.5.51
+    restart: always
+    volumes:
+      - db_lhc:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=lhc123
+      - MYSQL_DATABASE=lhc
+    privileged: true
+
+volumes:
+  storage_lhc:
+  db_lhc:
