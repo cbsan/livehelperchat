@@ -11,6 +11,7 @@ Configurei um ambiente utilizando LiveHelperChat. Atualmente esta utilizando a v
 
 Sugestões e criticas são muito bem vindas :blush:
 
+📖 **Documentação [Live Helper Chat](https://doc.livehelperchat.com/docs/)**
 ⚠️ **Necessário ter o [Docker](https://docs.docker.com/engine/) e "docker-compose" instalado em seu ambiente local.** ⚠️
 
 ### Considerações
